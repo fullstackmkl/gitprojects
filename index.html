@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Training Materials</title>
+    <style>
+        body {
+            font-family: 'Calibri', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            color: white;
+            background-color: rgba(0, 51, 102, 0.9);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .nav-container button {
+            background-color: #00509e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .nav-container button:hover {
+            background-color: #003f7f;
+        }
+        .content-box {
+            width: 80%;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #eef;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        ul {
+            list-style-type: none; /* Removes bullet points from list */
+            padding: 0;
+        }
+        ul li a {
+            text-decoration: none; /* Removes underline from links */
+            color: #00509e; /* Styles link color to match button color */
+            cursor: pointer; /* Indicates the link is clickable */
+        }
+        ul li a:hover {
+            color: #003f7f; /* Darker color on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vendor Training Materials</h1>
+    </header>
+    <div class="nav-container">
+        <button onclick="showContent('onboarding')">Onboarding Requirements</button>
+        <button onclick="showContent('documents')">Onboarding Documents</button>
+
+        <button onclick="showContent('vms')">VMS Training</button>
+        <button onclick="showContent('reports')">Reports</button>
+        <button onclick="showContent('contacts')">Contacts</button>
+
+    </div>
+    <div id="onboarding" class="content-box">
+        <h2>Onboarding Requirements</h2>
+        <select id="segmentSelect" onchange="showOutput()">
+            <option value="">--Please select a Segment--</option>
+            <option value="segment1">Segment 1 - Basic Introduction</option>
+            <option value="segment2">Segment 2 - Safety Protocols</option>
+            <option value="segment3">Segment 3 - Work Ethics</option>
+        </select>
+        <div id="output" class="output"></div>
+    </div>
+        </div>
+    <div id="documents" class="content-box">
+        <h2>Onboarding Documents</h2>
+        <p>Access to necessary documents such as Food Safety Guidelines and Meal Waiver Policy.</p>
+        <ul>
+            <li><a href="#" download="Food_Safety_Guidelines.pdf">Food Safety Guidelines</a></li>
+            <li><a href="#" download="Meal_Waiver_Policy.pdf">Meal Waiver Policy</a></li>
+        </ul>
+    </div>
+    <div id="vms" class="content-box">
+        <h2>VMS Training</h2>
+        <p>Overview and setup instructions for VMS.</p>
+        <ul>
+            <li><a href="#" download="Timesheet_Submittal.pdf">Timesheet Submittal</a></li>
+            <li><a href="#" download="Miscellaneous_Invoice.pdf">Miscellaneous Invoice</a></li>
+            <li><a href="#" download="Expense_Sheet_Invoice.pdf">Expense Sheet Invoice</a></li>
+            <li><a href="#" download="Candidate_Submittal.pdf">Candidate Submittal</a></li>
+        </ul>
+        </div>
+        <div id="reports" class="content-box">
+        <h2>Supplier Reports</h2>
+        <p>Access to necessary reports.</p>
+        <ul>
+            <li><a href="#">Recon Report</a></li>
+            <li><a href="#">Active Requisition Summary</a></li>
+            <li><a href="#">Spend by Job Code</a></li>
+        </ul>
+    </div>
+    </div>
+    <div id="contacts" class="content-box">
+        <h2>Contacts</h2>
+        <p>If you need additional information or have any questions, please do not hesitate to contact our shared inbox: Sodexo@MonumentConsulting.Com or support line: 855-723-9600 available M-F 8AM – 8PM EST.</p>
+    </div>
+    <script>
+        function showContent(sectionId) {
+            // Hide all content boxes
+            document.querySelectorAll('.content-box').forEach(function(box) {
+                box.style.display = 'none';
+            });
+            // Display the content box related to the button clicked
+            document.getElementById(sectionId).style.display = 'block';
+        }
+        function showOutput() {
+            var segment = document.getElementById('segmentSelect').value;
+            var output = document.getElementById('output');
+            output.innerHTML = `<strong>Details for ${segment}:</strong> Specific information related to the chosen segment.`;
+        }
+    </script>
+</body>
+</html>
